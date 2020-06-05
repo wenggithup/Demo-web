@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bagevent_test?serverTimezone=UTC
+    username: root
+    password: root
+  mail:
+    host: smtp.qq.com
+    username: 1771218519@qq.com
+    password: ezvokqihefslfacf
+    default-encoding: utf-8
+    from: 1771218519@qq.com
+
+mybatis:
+  mapper-locations: classpath:dao/*.xml

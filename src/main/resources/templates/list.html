@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/sidbar.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+                <table width="100%" border="1">
+
+                    <tr align="center">
+                        <td>登录id</td>
+                        <td>用户id</td>
+                        <td>登录时间</td>
+                        <td>登录ip</td>
+                    </tr>
+                    <div th:each="user:${users.list}">
+                        <tr align="center">
+                            <td><p th:text="${user.loginId}"></p></td>
+                            <td><p th:text="${user.userId}"></p></td>
+                            <td><p th:text="${user.loginTime}"></p></td>
+                            <td><p th:text="${user.loginIp}"></p></td>
+                        </tr>
+                    </div>
+                </table>
+                <nav>
+                    <ul class="pager">
+                        <li th:if="${users.hasPreviousPage}" class="previous"><a th:href="@{'list'+ '?page=' + ${users.prePage}}"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                        <li th:if="${users.hasNextPage}" class="next"><a th:href="@{'list'+ '?page=' + ${users.nextPage}}">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+
+
+
+</body>
+
+
+</html>
