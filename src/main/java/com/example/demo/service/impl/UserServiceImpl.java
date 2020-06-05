@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserSerivce {
 
         User user = userDao.selectUserByUsername(username);
         //判断用户是否合法
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && encoder.matches(password,user.getPassword())) {
             //登录成功后，将登录数据记录并添加到日志信息中
             try {
             UserLoginLog userLoginLog=new UserLoginLog();
